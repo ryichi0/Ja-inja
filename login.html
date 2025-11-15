@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <script src=" https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js "></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>| Login |</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="container">
+    <form onsubmit="handleLogin()" action="" id="loginForm">
+      <h1>فرم ورود</h1>
+      <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+      <input type="password" name="password" placeholder="رمزعبور خود را وارد کنید" required>
+      <button type="submit">ورود</button>
+      <a href="./register.html">ثبت نام</a>
+    </form>
+  </section>
+</body>
+<script src="./js/auth.js"></script>
+</html>

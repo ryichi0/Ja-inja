@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <script src=" https://cdn.jsdelivr.net/npm/axios@1.7.9/dist/axios.min.js "></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>| Register |</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="container">
+    <form onsubmit="handleRegister()" action="" id="registerForm">
+      <h1>فرم ثبت نام</h1>
+      <input type="email" name="email" placeholder="ایمیل خود را وارد کنید" required>
+      <input type="password" name="password" placeholder="رمزعبور خود را وارد کنید" required>
+      <input type="fullname" name="fullname" placeholder="نام خود را وارد کنید" required>
+      <button type="submit">ثبت نام</button>
+      <a href="./login.html">ورود</a>
+    </form>
+  </section>
+</body>
+<script src="./js/auth.js"></script>
+</html>
