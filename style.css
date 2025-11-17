@@ -35,6 +35,10 @@ a{
   align-items: center;
 }
 
+.m-top{
+  margin-block-start: 102px;
+}
+
 form{
   width: 100%;
   max-width: 400px;
@@ -151,11 +155,11 @@ main #map{
   overflow-y: scroll;
   padding: 2em;
 }
-
+/* 
 main #map,
 main #rooms-list{
   margin-block-start: 102px;
-}
+} */
 
 #rooms-list>div{
   width: 100%;
