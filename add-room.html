@@ -16,30 +16,40 @@
 <body>
   <header>
     <nav>
-      <a class="primary-btn" href="./add-room.html">صفحه اصلی</a>
+      <a class="primary-btn" href="./home.html">صفحه اصلی</a>
       <a href="./login.html">برو به لاگین</a>
     </nav>
   </header>
+
+
   <section class="container m-top">
     <form id="addRoomForm" onsubmit="addRoom()">
       <h1>اضافه کردن اقامتگاه</h1>
       <input type="text" name="title" placeholder="نام اقامتگاه را وارد کنید">
       <input type="number" name="price" placeholder="قیمت اقامتگاه را وارد کنید">
       <label id="select-image">
-        <input type="file" name="image">
+        <input onchange="handleFile(this)" type="file" id="image-input" accept="image/*">
         <span>عکس اقامتگاه را انتخاب کنید</span>
       </label>
+
+
       <div id="prev-section">
         <image id="prev-image"/>
+        <div onclick="handleCloseFile()" class="close">x</div>
       </div>
+
+
       <div class="map-section">
         <div id="map"></div>
       </div>
+
+      <input type="text" name="lat" id="lat">
+      <input type="text" name="lng" id="lng">
       <button type="submit">افزودن اتاق</button>
     </form> 
   </section>
+
+
 </body>
 <script src="./js/add-room.js"></script>
-<script src="./js/home.js"></script>
-<script src="./js/auth.js"></script>
 </html>

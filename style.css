@@ -84,27 +84,42 @@ form{
     width: 100%;
     height: 200px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+    .close{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      background-color: tomato;
+      color: white;
+      border-radius: 20px;
+      vertical-align: center;
+      cursor: pointer;
+    }
   }
 
   & #prev-section{
+    cursor: auto;
     display: none;
   }
 
   & label{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     & input{
       display: none;
     }
   }
 
-  & .map-section{
-    border-radius: 8px;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-  }
 }
 
 /* HOME PAGE */
@@ -179,5 +194,14 @@ main #rooms-list{
   img{
     width: 100%;
     border-radius: 18px;
+  }
+}
+
+.map-section{
+  border-radius: 8px;
+  width: 100%;
+  height: 200px;
+  #map{
+    height: 100%;
   }
 }
