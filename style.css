@@ -205,3 +205,37 @@ main #rooms-list{
     height: 100%;
   }
 }
+
+@media screen and (max-width:720px) {
+  main #map{
+    width: 100%;
+    height: 300px;
+    background-color: grey;
+    position: static;
+  }
+  #rooms-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    /* overflow-y: scroll; */
+    padding: 2em;
+  }
+  .m-top{
+    margin-block-start: 0;
+  }
+}
+
+@media screen and (max-width:390px) {
+  #rooms-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    /* overflow-y: scroll; */
+    padding: 2em;
+  }
+  .m-top{
+    margin-block-start: 0;
+  }
+}
