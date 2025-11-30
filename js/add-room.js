@@ -1,10 +1,44 @@
-// import {map} from './home.js'
-function addRoom () {
+function getFormValues () {
   event.preventDefault()
-  let form = document.getElementById('addRoomForm') ;
-  const data = {
-    'title' : form.elements['title'].value
+  try {
+    let form = document.getElementById('addRoomForm') ;
+    let formData = new FormData(form) ;
+    
+    formData['image'] = form.elements['image'].files[0] ;
+    formData['lat'] = form.elements['lat'].value ;
+    formData['lng'] = form.elements['lng'].value ;
+    formData['price'] = form.elements['price'].value ;
+    formData['title'] = form.elements['title'].value ;
+    console.log(formData);
+    
+    return formData ;
+
+  } catch (error) {
+    console.log(`Error : ${error}`);
   }
+}
+
+// import {map} from './home.js'
+
+async function addRoom () {
+  let formValues = getFormValues()
+  try{
+    // send POST request with user input as the req body
+    const response = await axios.post(`${baseUrl}/room`,
+      formValues,
+      {withCredentials: true}
+    ) ;
+    const responseData = response.data ;
+    console.log("state:", responseData.mes);
+    if (!responseData.result) {
+      console.log('اطلاعات فرم را به درستی وارد کنید.');
+    } else {
+      window.location.href = './home.html'
+    }
+  } catch(error){
+    console.log(error);
+  }
+  
 }
 
 
@@ -31,10 +65,8 @@ function updateMarker (lat, lng) {
 }
 map.on('click', (e)=>{
   console.log(e.latlng.lat, e.latlng.lng);
-  
   updateMarker(e.latlng.lat, e.latlng.lng)
 })
-
 
 
 // UPLOAD IMAGE FILE AND DISPLAY IT
@@ -43,11 +75,20 @@ function handleFile(val) {
   document.getElementById('select-image').style.display = 'none'  ;
   document.getElementById('prev-section').style.display = 'flex' ;
   const url = window.URL.createObjectURL(val.files[0]) ;
-  console.log(val, url) ;
-  document.getElementById('prev-image').src = url ;
+  let image = document.getElementById('prev-image') ;
+  image.src = url ;
+  
 }
 
 function handleCloseFile() {
   document.getElementById('select-image').style.display = 'flex'  ;
   document.getElementById('prev-section').style.display = 'none' ;
 }
+
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let isAuth = sessionStorage.getItem('isAuth') ;
+  if (!isAuth) {
+    location.href = './login.html'
+  } 
+})
